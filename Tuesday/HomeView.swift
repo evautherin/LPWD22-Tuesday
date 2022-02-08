@@ -14,7 +14,8 @@ struct HomeView: View {
         VStack{
             if let user = model.user{
                 Text("Hello, \(user.providerID)")
-            }else{
+                    .onAppear(perform: { model.getDocuments() })
+            } else {
                 LoginView()
             }
             
@@ -22,8 +23,6 @@ struct HomeView: View {
                 Text(errorMessage)
                     .padding()
                     .foregroundColor(.red)
-            }else{
-                
             }
         }
         .padding()
