@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var model = ViewModel()
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if let user = model.user {
+            Text("Hello, \(user.providerID)!")
+                .padding()
+        } else {
+            LoginView()
+        }
     }
 }
 
