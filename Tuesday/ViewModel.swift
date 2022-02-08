@@ -13,4 +13,5 @@ import FirebaseAuth
 
 class ViewModel: ObservableObject {
     @Published var user: User?
+    @Published var errorMessage: String?
 }
