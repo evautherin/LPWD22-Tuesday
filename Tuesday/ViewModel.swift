@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 
 @MainActor
@@ -24,6 +25,29 @@ class ViewModel: ObservableObject {
                 user = authResult.user
             } catch {
                 errorMessage = error.localizedDescription
+            }
+        }
+    }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            errorMessage = .none
+            user = .none
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+    
+    func getDocuments() {
+        let collection = Firestore.firestore().collection("FirstCollection")
+        collection.addSnapshotListener { [weak self] (querySnapshot, error) in
+            if let error = error {
+                self?.errorMessage = error.localizedDescription
+            }
+            
+            if let documents = querySnapshot?.documents {
+                print("Documents: \(documents)")
             }
         }
     }

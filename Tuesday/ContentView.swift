@@ -9,20 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var model = ViewModel()
-
+    
     var body: some View {
-        VStack {
-            if let user = model.user {
-                Text("Hello, \(user.providerID)!")
-                    .padding()
-            } else {
-                LoginView()
-            }
-            
-            if let errorMessage = model.errorMessage {
-                Text(errorMessage)
-                    .padding()
-            }
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            LogoutView()
+                .tabItem {
+                    Label("Account", systemImage: "person")
+                }
         }.environmentObject(model)
     }
 }

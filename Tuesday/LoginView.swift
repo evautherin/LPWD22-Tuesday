@@ -36,37 +36,3 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-extension LoginView {
-//    func f() {
-//        Task {
-//            do {
-//                let authResult = try await  Auth.auth().signIn(withEmail: "", password: "")
-//                user = authResult.user
-//            } catch {
-//                errorMessage = error.localizedDescription
-//            }
-//        }
-//    }
-    
-//    SecureField("Mail:", text: $mail)
-//        .textFieldStyle(.roundedBorder)
-//        .padding()
-}
-
