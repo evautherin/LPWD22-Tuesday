@@ -13,8 +13,7 @@ struct HomeView: View {
     var body: some View {
         VStack{
             if let user = model.user{
-                Text("Hello, \(user.providerID)")
-                    .onAppear(perform: { model.getDocuments() })
+                Text("Hello, \(user.uid)")
             } else {
                 LoginView()
             }
