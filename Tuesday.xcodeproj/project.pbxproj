@@ -23,6 +23,7 @@
 		8F296AC627B2881E00B7FD02 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8F296AC527B2881E00B7FD02 /* FirebaseStorage */; };
 		8F296AC827B2881E00B7FD02 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 8F296AC727B2881E00B7FD02 /* FirebaseStorageCombine-Community */; };
 		8F296ACA27B2881E00B7FD02 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 8F296AC927B2881E00B7FD02 /* FirebaseStorageSwift-Beta */; };
+		8F296ACE27B290C300B7FD02 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F296ACD27B290C300B7FD02 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8F296AA627B2856A00B7FD02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F296AA927B2856A00B7FD02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8F296AB227B286F400B7FD02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8F296ACD27B290C300B7FD02 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				8F296AA227B2856900B7FD02 /* TuesdayApp.swift */,
 				8F296AA427B2856900B7FD02 /* ContentView.swift */,
+				8F296ACD27B290C300B7FD02 /* LoginView.swift */,
 				8F296AA627B2856A00B7FD02 /* Assets.xcassets */,
 				8F296AB227B286F400B7FD02 /* GoogleService-Info.plist */,
 				8F296AA827B2856A00B7FD02 /* Preview Content */,
@@ -179,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F296ACE27B290C300B7FD02 /* LoginView.swift in Sources */,
 				8F296AA527B2856900B7FD02 /* ContentView.swift in Sources */,
 				8F296AA327B2856900B7FD02 /* TuesdayApp.swift in Sources */,
 			);
