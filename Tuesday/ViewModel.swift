@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
-
+import FirebaseFirestoreSwift
 
 @MainActor
 class ViewModel: ObservableObject {
@@ -48,6 +48,18 @@ class ViewModel: ObservableObject {
             
             if let documents = querySnapshot?.documents {
                 print("Documents: \(documents)")
+                documents.forEach({ document in
+                    do {
+                        let item = try document.data(as: Item.self)
+                        self?.errorMessage = .none
+                        if let name = item?.name {
+                            print("Item name: \(name)")
+                        }
+                    } catch {
+                        self?.errorMessage = error.localizedDescription
+                    }
+                    
+                })
             }
         }
     }
