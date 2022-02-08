@@ -17,14 +17,15 @@ struct LoginView: View {
         VStack (alignment: .leading) {
             Text("Email")
             TextField("Email", text: $mail)
+                .autocapitalization(.none)
                 .textFieldStyle(.roundedBorder)
             Text("Password")
             SecureField("Password", text: $password)
                 .textFieldStyle(.roundedBorder)
             Button("OK", action: {
-                model.errorMessage = "Pas d'erreur"
+                model.login(mail: mail, password: password)
             })
-                .padding()
+            .padding()
         }
         .padding()
     }
