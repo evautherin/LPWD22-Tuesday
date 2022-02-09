@@ -93,6 +93,7 @@ extension ViewModel {
             existingListener.remove()
             print("Existing listener removed")
             listener = .none
+            items = []
         }
 
         if let user = user {

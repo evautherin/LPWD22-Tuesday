@@ -13,7 +13,13 @@ struct HomeView: View {
     var body: some View {
         VStack{
             if let user = model.user{
-                Text("Hello, \(user.uid)")
+                VStack {
+                    Text("Hello, \(user.uid)")
+                    List(model.items) { item in
+                        let name = item.name ?? "No name"
+                        Text("Item: \(name)")
+                    }
+                }
             } else {
                 LoginView()
             }
