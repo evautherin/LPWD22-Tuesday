@@ -16,6 +16,7 @@ import FirebaseFirestoreSwift
 class ViewModel: ObservableObject {
     @Published var user: User?
     @Published var errorMessage: String?
+    @Published var items = [Item]()
     
     var listener: ListenerRegistration?
     var subscription: AnyCancellable?
@@ -59,18 +60,31 @@ extension ViewModel {
         
         if let documents = querySnapshot?.documents {
             print("Documents: \(documents)")
-            documents.forEach({ document in
-                do {
+            do {
+                items = try documents.map({ document -> Item in
                     let item = try document.data(as: Item.self)
-                    errorMessage = .none
-                    if let name = item?.name {
-                        print("Item name: \(name)")
+                    if let item = item {
+                        return item
+                    } else {
+                        return Item()
                     }
-                } catch {
-                    errorMessage = error.localizedDescription
-                }
-                
-            })
+               })
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+            
+//            documents.forEach({ document in
+//                do {
+//                    let item = try document.data(as: Item.self)
+//                    errorMessage = .none
+//                    if let name = item?.name {
+//                        print("Item name: \(name)")
+//                    }
+//                } catch {
+//                    errorMessage = error.localizedDescription
+//                }
+//
+//            })
         }
     }
     
