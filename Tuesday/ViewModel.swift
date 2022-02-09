@@ -61,13 +61,9 @@ extension ViewModel {
         if let documents = querySnapshot?.documents {
             print("Documents: \(documents)")
             do {
-                items = try documents.map({ document -> Item in
+                items = try documents.compactMap({ document /* -> Item? */ in
                     let item = try document.data(as: Item.self)
-                    if let item = item {
-                        return item
-                    } else {
-                        return Item()
-                    }
+                    return item
                })
             } catch {
                 errorMessage = error.localizedDescription
